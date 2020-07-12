@@ -2,7 +2,6 @@ import React, { Component } from 'react';
 
 const API_KEY = '17e6e478';
 
-
 export class SearchForm extends Component {
 
     state = {
@@ -21,11 +20,8 @@ export class SearchForm extends Component {
         fetch(`http://www.omdbapi.com/?apikey=${API_KEY}&s=${inputMovie}`)
             .then(res => res.json())
             .then(data => {
-                
-                const { Search, totalResults } = data;
 
-                console.log(Search, totalResults);
-                
+                const { Search, totalResults } = data;
                 this.props.onResults(Search);
             })
     }
